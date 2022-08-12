@@ -21,7 +21,7 @@ namespace MakerCameraPresets
     {
         public const string PluginName = "KK_MakerCameraPresets";
         public const string GUID = "org.njaecha.plugins.makercamerapresets";
-        public const string Version = "1.0.0";
+        public const string Version = "1.0.1";
 
         internal static new ManualLogSource Logger;
 
@@ -141,6 +141,7 @@ namespace MakerCameraPresets
         // borrowed from ClothingStateMenu
         private bool CanShow()
         {
+            if (!MakerAPI.InsideMaker) return false;
             if (MakerAPI.InsideMaker && !MakerAPI.IsInterfaceVisible()) return false;
 
             if (SceneApi.GetAddSceneName() == "Config") return false;
